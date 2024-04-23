@@ -1,12 +1,11 @@
 'use client'
 import Input from '@/components/Input'
 import Space from '@/components/Space'
-import { Box, Button, Card, CardContent, Checkbox, Container, TextField, Typography } from '@mui/material'
+import { Box, Button, Card, CardContent, Container, Typography } from '@mui/material'
 import Image from 'next/image'
 import React, { Fragment, useRef } from 'react'
 import Link from 'next/link';
 import { poppinsFont } from '@/components/fonts'
-import { Head } from 'next/document'
 import { LoginWithGoogle } from '../../../components/Buttons';
 import { signIn } from 'next-auth/react'
 
