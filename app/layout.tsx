@@ -14,11 +14,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  
   return (
     <html lang="en">
       <body className={inter.className} style={{
         backgroundColor: '#f8f8f8',
-      }}>{children}</body>
+      }}>
+        {children}
+      </body>
     </html>
   );
 }

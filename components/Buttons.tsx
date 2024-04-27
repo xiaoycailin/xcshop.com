@@ -6,7 +6,7 @@ import React from 'react'
 
 export const LoginWithGoogle = () => {
     return (
-        <Button onClick={(e) => signIn('google', { redirect: false, callbackUrl: location.origin })} size="small" startIcon={<Image src="/google.svg" alt="Google SVG" width={30} height={30} />} variant="outlined" fullWidth>
+        <Button onClick={(e) => signIn('google', { redirect: false })} size="small" startIcon={<Image src="/google.svg" alt="Google SVG" width={30} height={30} />} variant="outlined" fullWidth>
             Lanjutkan Dengan Google
         </Button>
     )

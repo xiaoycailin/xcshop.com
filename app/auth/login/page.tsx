@@ -3,36 +3,57 @@ import Input from '@/components/Input'
 import Space from '@/components/Space'
 import { Box, Button, Card, CardContent, Container, Typography } from '@mui/material'
 import Image from 'next/image'
-import React, { Fragment, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link';
 import { poppinsFont } from '@/components/fonts'
 import { LoginWithGoogle } from '../../../components/Buttons';
 import { signIn } from 'next-auth/react'
+import ToastX from '@/components/toast'
+import Page from '@/components/Page'
+import checkAuth from '@/middleware/checkAuth'
+import { User } from 'next-auth'
+import { googleSignIn } from '@/lib/auth'
 
-const LoginPage = () => {
+const LoginPage = checkAuth(({ session }: { session: User }) => {
 
-    let email = ''
-    let password = ''
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
 
     const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+        document.querySelector('form')?.querySelector('button')?.setAttribute('disabled', 'disabled')
         const result = await signIn('credentials', {
             email: email,
             password: password,
             type: 'signin',
             redirect: false,
         })
+        document.querySelector('form')?.querySelector('button')?.removeAttribute('disabled')
 
-        console.log(result)
+        const toast = ToastX.create({ title: 'Berhasil', detail: 'Login berhasil moho tunggu sedang menyiapkan halaman.' })
+        if (result?.ok) {
+            toast.success()
+            location.href = '/'
+        } else {
+            toast.toastProps.summary = 'Gagal'
+            toast.toastProps.detail = result?.error
+            toast.error()
+        }
     }
+
+    useEffect(() => {
+        googleSignIn(session)
+        return () => {
+        }
+    }, [session])
     return (
-        <Fragment>
+        <Page>
             <title>Masuk - Brand Name</title>
             <Container maxWidth="lg" sx={{
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                height: '100vh',// Ubah warna background menjadi abu-abu
+                height: '100vh', // Ubah warna background menjadi abu-abu
             }}>
                 <div>
                     <Box style={{ textAlign: 'center' }}>
@@ -57,21 +78,21 @@ const LoginPage = () => {
                         }}>
 
                             <form style={{ width: '100%' }} onSubmit={onSubmit}>
-                                <Input onChange={(e) => email = e.target.value} label="Email Address" />
+                                <Input onChange={(e) => setEmail(e.target.value)} label="Email Address" />
                                 <Space />
-                                <Input onChange={(e) => password = e.target.value} label="Password" />
+                                <Input onChange={(e) => setPassword(e.target.value)} label="Password" />
                                 <Space />
 
                                 <Box sx={{ marginLeft: 'auto' }}>
                                     <Typography variant="caption" style={{ opacity: 0.8 }}><Link href="/auth/forgot-password">Forgot Password?</Link></Typography>
                                 </Box>
                                 <Space />
-                                <Button fullWidth variant="contained" type="submit">Masuk</Button>
+                                <Button fullWidth variant="contained" type="submit" >Masuk</Button>
                             </form>
                             <Space />
                             <Box style={{ opacity: 0.5 }}>Atau</Box>
                             <Space />
-
+                            
                             <LoginWithGoogle />
 
                             <Space />
@@ -81,8 +102,8 @@ const LoginPage = () => {
 
                 </div>
             </Container>
-        </Fragment>
+        </Page>
     )
-}
+})
 
 export default LoginPage

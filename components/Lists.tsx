@@ -1,16 +1,16 @@
 'use client'
 import { signOut } from "next-auth/react";
-import Link from "next/link";
+
 import { Fragment } from "react";
 import { Button } from '@mui/material';
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
 
-export default async function Lists() {
-    const session = await getServerSession(authOptions)
+export default function Lists() {
     return (
         <Fragment>
-            {!session ? <Button><Link href="/auth/login">SignIn</Link></Button> : <Button onClick={() => signOut()}>SignOut</Button>}
+            <Button onClick={() => signOut({
+                redirect: true,
+                callbackUrl: '/auth/login'
+            })}>SignOut</Button>
         </Fragment>
     )
 }
