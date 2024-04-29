@@ -1,19 +1,26 @@
-import { Users } from "@/components/users";
-import { Suspense } from "react";
-import Lists from '../components/Lists';
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
+"use client"
+
 import Page from "@/components/Page";
+import './page.css'
+import { withData } from "@/middleware/withData";
+import { StaticData } from "@/interface/Metadata";
+import ResponsiveCarousel from '../components/BannerSlider';
+import Space, { SpaceMarginAuto } from '@/components/Space';
 
-
-export const dynamic = 'force-dynamic'
-export default async function Home() {
-    const session = await getServerSession(authOptions)
+import FlashSale from "@/components/FlashSale";
+import BrandList from "@/components/BrandList";
+export default withData(({ data }: { data?: StaticData | null }) => {
 
     return (
-        <Page>
+        <Page useAppBar data={data}>
             <title>Home Page</title>
-            <Lists />
+
+            <Space />
+            <ResponsiveCarousel />
+
+            <SpaceMarginAuto />
+            <FlashSale />
+            <BrandList />
         </Page>
     );
-}
+});

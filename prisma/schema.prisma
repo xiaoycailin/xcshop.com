@@ -25,3 +25,21 @@ model Users {
   auth_from AuthType?
   createdAt DateTime  @default(now())
 }
+
+model Brand {
+  id           String   @id @default(cuid())
+  name         String?
+  brand_id     String?
+  status       Boolean?
+  description  String?
+  helper       String?
+  input_method String?
+  server_list  Json?
+  id_checker   String?
+
+  images   Json?
+  provider Json?
+  extends  Json[]
+
+  @@map("brands")
+}

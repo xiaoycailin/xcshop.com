@@ -1,0 +1,32 @@
+
+.text-custom-primary {
+    --primary-color: #1111a8;
+    color: var(--primary-color);
+}
+
+.border-custom-primary {
+    --primary-color: #1111a8;
+    border-color: var(--primary-color);
+}
+
+.app-bar {
+    background-color: #f8f8f8;
+    padding: 18px;
+    --container-max-width-mobile: 1000px;
+    max-width: var(--container-max-width-mobile);
+    padding-right: 16px;
+    padding-left: 16px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.app-container {
+    background-image: url('/static/background.svg');
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    overflow: scroll;
+}

@@ -13,6 +13,7 @@ export const createUser = async (credentials: Record<"type" | "name" | "email" |
             data: {
                 email: credentials.email,
                 name: credentials.name,
+                image: credentials.image,
                 auth_from: auth,
                 phone: credentials.phone,
                 password: credentials.password
@@ -78,6 +79,7 @@ export const authOptions: NextAuthOptions = {
                         id: user.uuid,
                         email: user.email,
                         name: user.email,
+                        image: user.image,
                         phone: user.phone
                     }
                     // jika request type google dan user tersedia dari GOOGLE
