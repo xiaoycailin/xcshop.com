@@ -9,6 +9,7 @@ import Space, { SpaceMarginAuto } from '@/components/Space';
 
 import FlashSale from "@/components/FlashSale";
 import BrandList from "@/components/BrandList";
+import Footer from "@/components/Footer";
 export default withData(({ data }: { data?: StaticData | null }) => {
 
     return (
@@ -21,6 +22,8 @@ export default withData(({ data }: { data?: StaticData | null }) => {
             <SpaceMarginAuto />
             <FlashSale />
             <BrandList />
+
+            <Footer />
         </Page>
     );
 });

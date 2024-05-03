@@ -29,5 +29,6 @@ export interface Brand {
     extends?: Route[],
     input_method?: 'one_id' | 'double_id' | 'with_server_list',
     server_list?: any[],
-    id_checker?: string
+    id_checker?: string,
+    path?: string
 }

@@ -14,6 +14,12 @@ enum AuthType {
   FACEBOOK
 }
 
+enum InputMethod {
+  one_id
+  double_id
+  with_server_list
+}
+
 model Users {
   id        Int       @id @default(autoincrement())
   uuid      String    @unique @default(uuid())
@@ -27,19 +33,19 @@ model Users {
 }
 
 model Brand {
-  id           String   @id @default(cuid())
+  id           String      @id @default(cuid())
   name         String?
   brand_id     String?
   status       Boolean?
   description  String?
   helper       String?
-  input_method String?
+  input_method InputMethod
   server_list  Json?
   id_checker   String?
-
-  images   Json?
-  provider Json?
-  extends  Json[]
+  images       Json?
+  provider     Json?
+  extends      Json[]
+  path         String
 
   @@map("brands")
 }

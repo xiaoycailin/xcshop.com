@@ -1,7 +1,31 @@
+::-webkit-scrollbar {
+    width: 5px;
+    height: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0a0a0a23;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+}
 
 .text-custom-primary {
     --primary-color: #1111a8;
     color: var(--primary-color);
+}
+
+.bg-header {
+    background-color: rgba(240, 240, 240, 0.466);
+    backdrop-filter: blur(8%) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    border-bottom: 0.4px solid rgba(204, 204, 204, 0.466);
 }
 
 .border-custom-primary {
@@ -10,7 +34,6 @@
 }
 
 .app-bar {
-    background-color: #f8f8f8;
     padding: 18px;
     --container-max-width-mobile: 1000px;
     max-width: var(--container-max-width-mobile);
@@ -28,5 +51,5 @@
     width: 100%;
     height: 100vh;
     position: fixed;
-    overflow: scroll;
+    overflow: auto;
 }

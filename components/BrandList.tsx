@@ -1,6 +1,8 @@
-import { Container } from '@mui/material'
+import { Card, Container, CardContent, Box, Grid, Typography } from '@mui/material';
 import React, { useEffect } from 'react'
 import Space from '@/components/Space';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const B: React.FC<{ text?: React.ReactNode }> = ({ text }) => (
     <button className="lg-capsule-av py-2 px-3 text-xs md:text-base bg-white rounded-full border border-solid text-custom-black-secondary border-custom-black-subdued mr-2 !text-xs md:!text-sm !font-medium" title="" style={{ opacity: .7, fontSize: 13 }}>{text}</button>
@@ -25,26 +27,105 @@ const BrandList = () => {
     return (
         <>
             <Space />
-            <Container className="w-full lg-home__capsule-section sticky top-[-1px] md:top-[-1px] z-10 overflow-x-auto whitespace-nowrap p-3" sx={{
-                '&::-webkit-scrollbar': {
-                    width: '5px',
-                    height: '4px',
-                },
-                '&::-webkit-scrollbar-track': {
-                    background: '#f1f1f1',
-                },
-                '&::-webkit-scrollbar-thumb': {
-                    background: '#999',
-                    borderRadius: '5px',
-                },
+            <Container className="w-full lg-home__capsule-section sticky top-[-1px] md:top-[-1px] z-10 overflow-x-auto whitespace-nowrap p-3 px-5" sx={{
+                display: 'none'
             }}>
                 <B text="❤️ Favorit Kamu" />
             </Container>
 
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. A suscipit eius laboriosam, cupiditate fugit adipisci quam perferendis vel? Quaerat voluptatem hic aspernatur repellat libero atque quasi nostrum sed illum cupiditate quae, quisquam reprehenderit. Officia laborum totam dolorum assumenda velit praesentium accusantium quam possimus ipsam adipisci saepe reprehenderit hic ad illum nemo architecto obcaecati doloremque similique optio, laboriosam exercitationem perferendis debitis in corporis! Repellat harum reprehenderit iusto aliquid. Repellat aliquid, ipsa aliquam esse a iusto? Corrupti consequatur nihil sit, blanditiis, similique vitae consequuntur soluta dolor fugit iusto libero nam, quaerat dolorum! Corporis debitis dolore ullam necessitatibus maiores quia accusamus voluptas eaque reprehenderit nemo at totam fugiat, nostrum, omnis similique corrupti ex facere quisquam dicta deserunt quis et! Ipsum eaque suscipit asperiores modi blanditiis excepturi. Non veniam quo nesciunt officiis nam atque quibusdam sapiente vitae? Omnis maiores corrupti ab quaerat ipsum aperiam, magni accusamus laudantium architecto, cum delectus temporibus dolorem quis minima labore consequuntur quidem inventore? Eveniet enim error ipsum iste iure facilis, voluptate temporibus possimus vel velit ab fuga, ducimus, rem reiciendis quaerat neque ipsam. Laborum molestias voluptatum temporibus voluptates. Doloribus ratione voluptatibus obcaecati illum nobis. Voluptatem repudiandae expedita quam vitae ducimus distinctio aut, officiis incidunt dignissimos qui mollitia, praesentium voluptatibus sunt et autem accusamus repellat unde aspernatur recusandae repellendus. Eligendi nam distinctio culpa reprehenderit enim commodi odio iste asperiores ducimus cum, quia aspernatur alias odit dicta deserunt laudantium, architecto quae tempore natus porro incidunt? Doloribus, similique! Iure, praesentium eligendi! Qui at itaque libero quidem quibusdam nisi voluptatibus ipsam nobis ut sit omnis voluptatum odio exercitationem rerum blanditiis a consequuntur quas quia, necessitatibus perferendis. Assumenda, odit? Dignissimos minima unde quisquam inventore illum cupiditate ratione, sint perferendis veritatis minus nostrum nobis vero dolorem assumenda, voluptate pariatur eveniet adipisci? Exercitationem, illo. Autem enim dolore cumque id incidunt nihil error alias ipsa deserunt dignissimos.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. A suscipit eius laboriosam, cupiditate fugit adipisci quam perferendis vel? Quaerat voluptatem hic aspernatur repellat libero atque quasi nostrum sed illum cupiditate quae, quisquam reprehenderit. Officia laborum totam dolorum assumenda velit praesentium accusantium quam possimus ipsam adipisci saepe reprehenderit hic ad illum nemo architecto obcaecati doloremque similique optio, laboriosam exercitationem perferendis debitis in corporis! Repellat harum reprehenderit iusto aliquid. Repellat aliquid, ipsa aliquam esse a iusto? Corrupti consequatur nihil sit, blanditiis, similique vitae consequuntur soluta dolor fugit iusto libero nam, quaerat dolorum! Corporis debitis dolore ullam necessitatibus maiores quia accusamus voluptas eaque reprehenderit nemo at totam fugiat, nostrum, omnis similique corrupti ex facere quisquam dicta deserunt quis et! Ipsum eaque suscipit asperiores modi blanditiis excepturi. Non veniam quo nesciunt officiis nam atque quibusdam sapiente vitae? Omnis maiores corrupti ab quaerat ipsum aperiam, magni accusamus laudantium architecto, cum delectus temporibus dolorem quis minima labore consequuntur quidem inventore? Eveniet enim error ipsum iste iure facilis, voluptate temporibus possimus vel velit ab fuga, ducimus, rem reiciendis quaerat neque ipsam. Laborum molestias voluptatum temporibus voluptates. Doloribus ratione voluptatibus obcaecati illum nobis. Voluptatem repudiandae expedita quam vitae ducimus distinctio aut, officiis incidunt dignissimos qui mollitia, praesentium voluptatibus sunt et autem accusamus repellat unde aspernatur recusandae repellendus. Eligendi nam distinctio culpa reprehenderit enim commodi odio iste asperiores ducimus cum, quia aspernatur alias odit dicta deserunt laudantium, architecto quae tempore natus porro incidunt? Doloribus, similique! Iure, praesentium eligendi! Qui at itaque libero quidem quibusdam nisi voluptatibus ipsam nobis ut sit omnis voluptatum odio exercitationem rerum blanditiis a consequuntur quas quia, necessitatibus perferendis. Assumenda, odit? Dignissimos minima unde quisquam inventore illum cupiditate ratione, sint perferendis veritatis minus nostrum nobis vero dolorem assumenda, voluptate pariatur eveniet adipisci? Exercitationem, illo. Autem enim dolore cumque id incidunt nihil error alias ipsa deserunt dignissimos.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. A suscipit eius laboriosam, cupiditate fugit adipisci quam perferendis vel? Quaerat voluptatem hic aspernatur repellat libero atque quasi nostrum sed illum cupiditate quae, quisquam reprehenderit. Officia laborum totam dolorum assumenda velit praesentium accusantium quam possimus ipsam adipisci saepe reprehenderit hic ad illum nemo architecto obcaecati doloremque similique optio, laboriosam exercitationem perferendis debitis in corporis! Repellat harum reprehenderit iusto aliquid. Repellat aliquid, ipsa aliquam esse a iusto? Corrupti consequatur nihil sit, blanditiis, similique vitae consequuntur soluta dolor fugit iusto libero nam, quaerat dolorum! Corporis debitis dolore ullam necessitatibus maiores quia accusamus voluptas eaque reprehenderit nemo at totam fugiat, nostrum, omnis similique corrupti ex facere quisquam dicta deserunt quis et! Ipsum eaque suscipit asperiores modi blanditiis excepturi. Non veniam quo nesciunt officiis nam atque quibusdam sapiente vitae? Omnis maiores corrupti ab quaerat ipsum aperiam, magni accusamus laudantium architecto, cum delectus temporibus dolorem quis minima labore consequuntur quidem inventore? Eveniet enim error ipsum iste iure facilis, voluptate temporibus possimus vel velit ab fuga, ducimus, rem reiciendis quaerat neque ipsam. Laborum molestias voluptatum temporibus voluptates. Doloribus ratione voluptatibus obcaecati illum nobis. Voluptatem repudiandae expedita quam vitae ducimus distinctio aut, officiis incidunt dignissimos qui mollitia, praesentium voluptatibus sunt et autem accusamus repellat unde aspernatur recusandae repellendus. Eligendi nam distinctio culpa reprehenderit enim commodi odio iste asperiores ducimus cum, quia aspernatur alias odit dicta deserunt laudantium, architecto quae tempore natus porro incidunt? Doloribus, similique! Iure, praesentium eligendi! Qui at itaque libero quidem quibusdam nisi voluptatibus ipsam nobis ut sit omnis voluptatum odio exercitationem rerum blanditiis a consequuntur quas quia, necessitatibus perferendis. Assumenda, odit? Dignissimos minima unde quisquam inventore illum cupiditate ratione, sint perferendis veritatis minus nostrum nobis vero dolorem assumenda, voluptate pariatur eveniet adipisci? Exercitationem, illo. Autem enim dolore cumque id incidunt nihil error alias ipsa deserunt dignissimos.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. A suscipit eius laboriosam, cupiditate fugit adipisci quam perferendis vel? Quaerat voluptatem hic aspernatur repellat libero atque quasi nostrum sed illum cupiditate quae, quisquam reprehenderit. Officia laborum totam dolorum assumenda velit praesentium accusantium quam possimus ipsam adipisci saepe reprehenderit hic ad illum nemo architecto obcaecati doloremque similique optio, laboriosam exercitationem perferendis debitis in corporis! Repellat harum reprehenderit iusto aliquid. Repellat aliquid, ipsa aliquam esse a iusto? Corrupti consequatur nihil sit, blanditiis, similique vitae consequuntur soluta dolor fugit iusto libero nam, quaerat dolorum! Corporis debitis dolore ullam necessitatibus maiores quia accusamus voluptas eaque reprehenderit nemo at totam fugiat, nostrum, omnis similique corrupti ex facere quisquam dicta deserunt quis et! Ipsum eaque suscipit asperiores modi blanditiis excepturi. Non veniam quo nesciunt officiis nam atque quibusdam sapiente vitae? Omnis maiores corrupti ab quaerat ipsum aperiam, magni accusamus laudantium architecto, cum delectus temporibus dolorem quis minima labore consequuntur quidem inventore? Eveniet enim error ipsum iste iure facilis, voluptate temporibus possimus vel velit ab fuga, ducimus, rem reiciendis quaerat neque ipsam. Laborum molestias voluptatum temporibus voluptates. Doloribus ratione voluptatibus obcaecati illum nobis. Voluptatem repudiandae expedita quam vitae ducimus distinctio aut, officiis incidunt dignissimos qui mollitia, praesentium voluptatibus sunt et autem accusamus repellat unde aspernatur recusandae repellendus. Eligendi nam distinctio culpa reprehenderit enim commodi odio iste asperiores ducimus cum, quia aspernatur alias odit dicta deserunt laudantium, architecto quae tempore natus porro incidunt? Doloribus, similique! Iure, praesentium eligendi! Qui at itaque libero quidem quibusdam nisi voluptatibus ipsam nobis ut sit omnis voluptatum odio exercitationem rerum blanditiis a consequuntur quas quia, necessitatibus perferendis. Assumenda, odit? Dignissimos minima unde quisquam inventore illum cupiditate ratione, sint perferendis veritatis minus nostrum nobis vero dolorem assumenda, voluptate pariatur eveniet adipisci? Exercitationem, illo. Autem enim dolore cumque id incidunt nihil error alias ipsa deserunt dignissimos.
+            <Space />
+            <Container>
+                <Typography variant="h6" style={{ fontWeight: 600 }}>Topup Games</Typography>
+                <Space />
+                <Box sx={{ flexGrow: 1 }}>
+                    <Grid container spacing={1}>
+
+                        <Grid item xs={4} sm={3} md={2.4} lg={2}>
+                            <Card sx={{ maxWidth: 200, minWidth: 50, borderRadius: 3, cursor: 'pointer', p: 1.5 }}>
+                                <Link href="/mobile-legends">
+                                    <Image src="https://cdn.takapedia.com/1e1016e8-4847-49c8-8141-51ac4a9e03e0.webp" width={170} height={300} alt="" />
+                                    <Space />
+                                    <p style={{ fontWeight: 600, fontSize: 13 }} className="text-center">Mobile Legends</p>
+                                </Link>
+                            </Card>
+                        </Grid>
+                        <Grid item xs={4} sm={3} md={2.4} lg={2}>
+                            <Card sx={{ maxWidth: 200, minWidth: 50, borderRadius: 3, cursor: 'pointer', p: 1.5 }}>
+                                <Link href="/mobile-legends">
+                                    <Image src="https://cdn.takapedia.com/1e1016e8-4847-49c8-8141-51ac4a9e03e0.webp" width={170} height={300} alt="" />
+                                    <Space />
+                                    <p style={{ fontWeight: 600, fontSize: 13 }} className="text-center">Mobile Legends</p>
+                                </Link>
+                            </Card>
+                        </Grid>
+                        <Grid item xs={4} sm={3} md={2.4} lg={2}>
+                            <Card sx={{ maxWidth: 200, minWidth: 50, borderRadius: 3, cursor: 'pointer', p: 1.5 }}>
+                                <Link href="/mobile-legends">
+                                    <Image src="https://cdn.takapedia.com/1e1016e8-4847-49c8-8141-51ac4a9e03e0.webp" width={170} height={300} alt="" />
+                                    <Space />
+                                    <p style={{ fontWeight: 600, fontSize: 13 }} className="text-center">Mobile Legends</p>
+                                </Link>
+                            </Card>
+                        </Grid>
+                        <Grid item xs={4} sm={3} md={2.4} lg={2}>
+                            <Card sx={{ maxWidth: 200, minWidth: 50, borderRadius: 3, cursor: 'pointer', p: 1.5 }}>
+                                <Link href="/mobile-legends">
+                                    <Image src="https://cdn.takapedia.com/1e1016e8-4847-49c8-8141-51ac4a9e03e0.webp" width={170} height={300} alt="" />
+                                    <Space />
+                                    <p style={{ fontWeight: 600, fontSize: 13 }} className="text-center">Mobile Legends</p>
+                                </Link>
+                            </Card>
+                        </Grid>
+                        <Grid item xs={4} sm={3} md={2.4} lg={2}>
+                            <Card sx={{ maxWidth: 200, minWidth: 50, borderRadius: 3, cursor: 'pointer', p: 1.5 }}>
+                                <Link href="/mobile-legends">
+                                    <Image src="https://cdn.takapedia.com/1e1016e8-4847-49c8-8141-51ac4a9e03e0.webp" width={170} height={300} alt="" />
+                                    <Space />
+                                    <p style={{ fontWeight: 600, fontSize: 13 }} className="text-center">Mobile Legends</p>
+                                </Link>
+                            </Card>
+                        </Grid>
+                        <Grid item xs={4} sm={3} md={2.4} lg={2}>
+                            <Card sx={{ maxWidth: 200, minWidth: 50, borderRadius: 3, cursor: 'pointer', p: 1.5 }}>
+                                <Link href="/mobile-legends">
+                                    <Image src="https://cdn.takapedia.com/1e1016e8-4847-49c8-8141-51ac4a9e03e0.webp" width={170} height={300} alt="" />
+                                    <Space />
+                                    <p style={{ fontWeight: 600, fontSize: 13 }} className="text-center">Mobile Legends</p>
+                                </Link>
+                            </Card>
+                        </Grid>
+                        <Grid item xs={4} sm={3} md={2.4} lg={2}>
+                            <Card sx={{ maxWidth: 200, minWidth: 50, borderRadius: 3, cursor: 'pointer', p: 1.5 }}>
+                                <Link href="/mobile-legends">
+                                    <Image src="https://cdn.takapedia.com/1e1016e8-4847-49c8-8141-51ac4a9e03e0.webp" width={170} height={300} alt="" />
+                                    <Space />
+                                    <p style={{ fontWeight: 600, fontSize: 13 }} className="text-center">Mobile Legends</p>
+                                </Link>
+                            </Card>
+                        </Grid>
+                        <Grid item xs={4} sm={3} md={2.4} lg={2}>
+                            <Card sx={{ maxWidth: 200, minWidth: 50, borderRadius: 3, cursor: 'pointer', p: 1.5 }}>
+                                <Link href="/mobile-legends">
+                                    <Image src="https://cdn.takapedia.com/1e1016e8-4847-49c8-8141-51ac4a9e03e0.webp" width={170} height={300} alt="" />
+                                    <Space />
+                                    <p style={{ fontWeight: 600, fontSize: 13 }} className="text-center">Mobile Legends</p>
+                                </Link>
+                            </Card>
+                        </Grid>
+                        <Grid item xs={4} sm={3} md={2.4} lg={2}>
+                            <Card sx={{ maxWidth: 200, minWidth: 50, borderRadius: 3, cursor: 'pointer', p: 1.5 }}>
+                                <Link href="/mobile-legends">
+                                    <Image src="https://cdn.takapedia.com/1e1016e8-4847-49c8-8141-51ac4a9e03e0.webp" width={170} height={300} alt="" />
+                                    <Space />
+                                    <p style={{ fontWeight: 600, fontSize: 13 }} className="text-center">Mobile Legends</p>
+                                </Link>
+                            </Card>
+                        </Grid>
+
+                    </Grid>
+                </Box>
+
+            </Container>
         </>
     )
 }

@@ -13,9 +13,11 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      backdropBlur: { 'none': 'none', 'blur': 'blur(20px)' }
     },
-    
+
   },
-  plugins: [],
+  plugins: [
+  ],
 };
 export default config;
